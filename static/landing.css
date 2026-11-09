@@ -387,9 +387,9 @@ body.night .mcard .mt b{font-size:24px}
 .mcard .y{background:#FFC24D;color:#1E3A5F}.mcard .w{background:#fff;color:#1E3A5F}
 
 /* ===== 두더지배관 v2: 아스팔트 + 안전 노랑 ===== */
-.disp,.dhero h1,.sec h2,.order-wrap h2,#formT,.dsteps li::before{font-family:"Black Han Sans",var(--f);font-weight:400}
+.disp,.dhero h1,.sec h2,.order-wrap h2,#formT,.dsteps li::before{font-family:var(--f);font-weight:400}
 .bar{background:#1f2124;border-bottom:0;color:#fff;margin:0 -18px;padding:10px 18px}
-.bar .logo{color:#fff;font-family:"Black Han Sans",var(--f);font-weight:400;font-size:21px;letter-spacing:.3px}
+.bar .logo{color:#fff;font-family:var(--f);font-weight:400;font-size:21px;letter-spacing:.3px}
 .bar .logo .lg{width:34px;height:34px}
 .bar .small.muted{color:#ffc400;font-weight:700}
 .dhero{position:relative;overflow:hidden;background:#1f2124;color:#fff;margin:-14px -18px 0;padding:22px 18px 0}
@@ -407,13 +407,13 @@ body.night .mcard .mt b{font-size:24px}
 .order-wrap h2,.sec h2{font-size:24px;letter-spacing:-.3px;margin:0 0 14px}
 .order{border:2px solid #1f2124;border-radius:4px;background:#fff;position:relative}
 .order .oh{display:flex;justify-content:space-between;align-items:baseline;background:#1f2124;color:#fff;padding:10px 14px}
-.order .oh b{font-family:"Black Han Sans",var(--f);font-weight:400;font-size:19px}
+.order .oh b{font-family:var(--f);font-weight:400;font-size:19px}
 .order .oh span{font-size:12px;color:#b8bcc2}
 .order dl{margin:0;padding:4px 14px 12px}
 .order dl div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
 .order dl div:last-child{border-bottom:0}
 .order dt{color:var(--muted)}.order dd{margin:0;font-weight:800;text-align:right}
-.order .big{font-family:"Black Han Sans",var(--f);font-weight:400;font-size:22px}
+.order .big{font-family:var(--f);font-weight:400;font-size:22px}
 .stamp{position:absolute;right:12px;bottom:-14px;transform:rotate(-8deg);border:3px solid #c62828;color:#c62828;font-weight:900;padding:2px 10px;border-radius:4px;background:#fff;font-size:14px}
 .tip{display:flex;gap:10px;align-items:center;background:#fff3c4;border-radius:8px;padding:10px 12px;margin-top:24px;font-size:14px;font-weight:600}
 .tip svg{width:46px;height:46px;flex:none}
@@ -456,7 +456,7 @@ body.night #formCard{border:0}
 .gal-track figcaption{color:#fff;font-size:13.5px;font-weight:700;padding:8px 12px}
 .gal-track figcaption::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#ffc400;margin-right:7px;vertical-align:1px}
 .pick{background:#ffc400;margin:0 -18px;padding:22px 18px 20px}
-.pick h2{font-family:"Black Han Sans",var(--f);font-weight:400;font-size:25px;margin:0 0 14px;color:#1f2124}
+.pick h2{font-family:var(--f);font-weight:400;font-size:25px;margin:0 0 14px;color:#1f2124}
 .pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .pick-grid a{display:grid;grid-template-columns:40px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;background:#1f2124;color:#fff;text-decoration:none;border-radius:6px;padding:12px}
 .pick-grid a.wide{grid-column:1/-1}
@@ -474,7 +474,7 @@ body.night #formCard{border:0}
 #formCard form{padding:0 16px;display:flex;flex-direction:column;gap:14px;margin-top:14px}
 .tk-step{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .tk-step legend{display:flex;align-items:center;gap:8px;font-weight:800;font-size:16px;padding:0;margin-bottom:6px}
-.tk-step legend i{font-style:normal;width:24px;height:24px;border-radius:50%;background:#1f2124;color:#ffc400;display:grid;place-items:center;font-family:"Black Han Sans",var(--f);font-size:14px}
+.tk-step legend i{font-style:normal;width:24px;height:24px;border-radius:50%;background:#1f2124;color:#ffc400;display:grid;place-items:center;font-family:var(--f);font-size:14px}
 #formCard label{color:#17181a}
 #formCard .opt{display:block;font-size:12.5px;color:var(--muted);margin-bottom:4px}
 #formCard input:not([type=checkbox]),#formCard textarea{background:#fff;color:#17181a;border:0;border-bottom:2px solid #1f2124;border-radius:0;padding:10px 2px;font-size:17px}
@@ -526,7 +526,7 @@ body.night #formCard{border:0}
 .call2::before{display:none}
 .call2 .c2-av{display:none}
 .call2 .c2-t{align-items:flex-start;justify-content:center;padding:12px 14px 12px 34px;position:relative;background:repeating-linear-gradient(-45deg,#1f2124 0 8px,#ffc400 8px 16px) left/20px 100% no-repeat}
-.call2 .c2-t b{font-family:"Black Han Sans",var(--f);font-weight:400;font-size:26px;letter-spacing:0;color:#1f2124}
+.call2 .c2-t b{font-family:var(--f);font-weight:400;font-size:26px;letter-spacing:0;color:#1f2124}
 .call2 .c2-t small{order:-1;font-size:12.5px;font-weight:800;opacity:1;color:#1f2124}
 .call2 .c2-ic{width:66px;height:auto;border-radius:0;background:#1f2124;color:#ffc400;flex:none}
 .call2 .c2-ic::after{display:none}
@@ -535,3 +535,7 @@ body.night #formCard{border:0}
 /* 현장 사진: 두 장씩 보이게 작게 */
 .gal-track figure{flex:0 0 44%}
 .gal-track figcaption{font-size:12px;padding:6px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* 제목 글꼴: 굵은 붓글씨체 대신 Pretendard 굵게 (가독성) */
+.dhero h1,.sec h2,.order-wrap h2,#formT,.pick h2,.order .oh b,.order .big,.call2 .c2-t b,.dsteps li::before,.tk-step legend i{font-family:var(--f) !important;font-weight:800 !important;letter-spacing:-.6px}
+.dhero h1{font-weight:900 !important;font-size:36px;line-height:1.2}
+.sec h2,.order-wrap h2,.pick h2{font-size:22px}
