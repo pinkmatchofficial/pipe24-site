@@ -554,3 +554,16 @@ body.night #formCard{border:0}
 /* 섹션 제목 강조: 노란 형광펜 밑줄 */
 .sec h2,.order-wrap h2{display:inline-block;align-self:flex-start;padding:0 2px;background:linear-gradient(transparent 58%,#ffc400 58%,#ffc400 90%,transparent 90%)}
 .sec>h2+*,.order-wrap>h2+*{margin-top:4px}
+
+/* 전화 버튼 반짝임 + 하단 고정 버튼 두 줄 */
+.call2{position:relative;overflow:hidden}
+.call2::after{content:"";position:absolute;top:-10%;bottom:-10%;left:-40%;width:28%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-20deg);animation:molShine 2.8s ease-in-out infinite;pointer-events:none;z-index:2}
+@keyframes molShine{0%,50%{left:-40%}80%,100%{left:120%}}
+.call2 .c2-ic svg{animation:molRing 2.8s ease-in-out infinite;transform-origin:50% 50%}
+@keyframes molRing{0%,62%,100%{transform:rotate(0)}66%{transform:rotate(-14deg)}70%{transform:rotate(12deg)}74%{transform:rotate(-8deg)}78%{transform:rotate(0)}}
+.dock .d-call{position:relative;overflow:hidden;line-height:1.15;padding:9px 8px}
+.dock .d-call::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:molShine 2.8s ease-in-out infinite;pointer-events:none}
+.dock .dc-t{display:flex;flex-direction:column;align-items:flex-start}
+.dock .dc-t b{font-size:15px;font-weight:800}
+.dock .dc-t small{font-size:13px;font-weight:700;opacity:.85;letter-spacing:-.2px}
+@media (prefers-reduced-motion:reduce){.call2::after,.dock .d-call::after,.call2 .c2-ic svg{animation:none;display:none}.call2 .c2-ic svg{display:block}}

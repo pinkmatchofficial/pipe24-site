@@ -253,7 +253,7 @@
       $("dockForm").hidden = false;
       $("dock").querySelector(".in").classList.toggle("one", !phone);
       $("dockNote").textContent = phone ? "전화 상담 오전 8시 ~ 밤 9시 · 온라인 접수 24시간" : "오전 8시, 가장 먼저 연락드려요";
-      $("dockForm").textContent = phone ? "출동 요청" : "야간 출동 요청";
+      $("dockForm").textContent = phone ? "상담 접수하기" : "야간 상담 접수하기";
     }
   }
   if (!$("callWrap")) placeForm(true);
