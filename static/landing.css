@@ -494,3 +494,16 @@ body.night #formCard{border:0}
 .dhero::after{content:"";position:absolute;inset:0 0 auto 0;height:330px;z-index:0;background:linear-gradient(90deg,rgba(31,33,36,.9) 0%,rgba(31,33,36,.62) 50%,rgba(31,33,36,.12) 100%)}
 .dhero>*:not(.bgill){position:relative;z-index:1}
 .dhero .mascot,.dhero .bubble{position:absolute;z-index:2}
+.bar .logo .lg{width:36px;height:36px;border-radius:50%;object-fit:cover;background:#ffc400}
+.dhero .mascot{right:-6px;top:58px;width:150px;height:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.55))}
+.dhero .bubble{top:30px;right:20px}
+.tip img{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#ffc400;flex:none}
+#formT .fm{width:50px;height:50px;border-radius:50%;object-fit:cover;background:#fff;margin:-8px 0;border:2px solid #1f2124}
+.fbrand img{width:30px;height:30px;border-radius:50%;object-fit:cover;background:#ffc400}
+@media (max-width:360px){.dhero .mascot{width:120px}}
+.dhero .mascot.up{top:auto;bottom:104px;right:-4px;width:180px;z-index:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}
+.dhero .ground{position:relative;z-index:2}
+.dhero .mascot.up{width:220px;bottom:100px;right:-18px}
+@media (max-width:360px){.dhero .mascot.up{width:180px}}
+.dhero .bubble{top:auto;bottom:232px;right:26px}
+.dhero .bubble{bottom:262px}

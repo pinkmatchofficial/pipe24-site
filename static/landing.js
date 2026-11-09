@@ -18,11 +18,11 @@
   // 문의 칩: 이 페이지 업종을 앞에, 다른 업종은 끝쪽에 (혹시 다른 문제로 들어온 경우)
   const REQS = LEAK ? ["바닥·천장 누수", "벽·배관 누수", "변기·수전 주변", "배관 막힘", "기타 직접 입력"]
              : THAW ? ["수도가 안 나와요", "배관·계량기 동파", "온수가 안 나와요", "누수", "배관 막힘", "기타 직접 입력"]
-             : WC ? ["변기", "세면대", "욕조", "샤워실", "싱크대", "하수구", "기타 직접 입력"]
+             : WC ? ["변기", "세면대", "욕조", "샤워실", "싱크대", "하수구", "교체", "기타 직접 입력"]
              : SVC === "교체" ? ["변기 교체", "세면대 교체", "수전·수도꼭지 교체", "싱크대 수전 교체", "배관 교체", "막힘", "기타 직접 입력"]
-             : SVC === "싱크대" ? ["싱크대", "변기", "하수구", "세면대", "욕조", "기타 직접 입력"]
-             : SVC === "하수구" ? ["하수구", "욕실 배수구", "베란다", "세탁실", "변기", "싱크대", "기타 직접 입력"]
-                    : ["변기", "싱크대", "하수구", "세면대", "욕조", "세탁실", "베란다", "기타 직접 입력"];
+             : SVC === "싱크대" ? ["싱크대", "변기", "하수구", "세면대", "욕조", "교체", "기타 직접 입력"]
+             : SVC === "하수구" ? ["하수구", "욕실 배수구", "베란다", "세탁실", "변기", "싱크대", "교체", "기타 직접 입력"]
+                    : ["변기", "싱크대", "하수구", "세면대", "욕조", "세탁실", "베란다", "교체", "기타 직접 입력"];
   const S = { req: LEAK ? "바닥·천장 누수" : THAW ? "수도가 안 나와요" : (WC ? (WCAT || "변기") : (SVC === "교체" ? "변기 교체" : (SVC || "변기"))), addr: null, token: "", sending: false };
 
   function toast(m) { const t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2600); }
@@ -33,7 +33,7 @@
   const inRange = (h, a, b) => a === b ? true : (a < b ? h >= a && h < b : h >= a || h < b);
   const FORCE_NIGHT = new URLSearchParams(location.search).get("pm_night") === "1";  // 미리보기용
   const isPhoneTime = () => !FORCE_NIGHT && inRange(kstHour(), HRS[0], HRS[1]);
-  const isLate = () => isPhoneTime() && inRange(kstHour(), 22, HRS[1] || 24);
+  const isLate = () => isPhoneTime() && HRS[1] < HRS[0] && inRange(kstHour(), 22, HRS[1] || 24);
   const isNight = () => !isPhoneTime();
   async function api(path, body) {
     const r = await fetch(PM.api + path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
@@ -240,7 +240,7 @@
     const phone = isPhoneTime(), hasCall = !!$("callWrap");
     document.body.classList.toggle("night", !phone);
     NIGHT_EL.forEach(([el, day, night]) => { el.innerHTML = phone ? day : night; });
-    if (!phone && $("nightLeft")) $("nightLeft").textContent = FORCE_NIGHT ? "오전 6시 연락 시작까지 3시간 20분 남았어요" : nightLeft();
+    if (!phone && $("nightLeft")) $("nightLeft").textContent = FORCE_NIGHT ? "오전 8시 연락 시작까지 3시간 20분 남았어요" : nightLeft();
     $("nightNotice").hidden = phone;
     $("lateNotice").hidden = !(phone && isLate());
     if (hasCall) {
@@ -252,7 +252,7 @@
       if ($("midCall")) $("midCall").hidden = !phone;
       $("dockForm").hidden = false;
       $("dock").querySelector(".in").classList.toggle("one", !phone);
-      $("dockNote").textContent = phone ? "전화 상담 오전 6시 ~ 새벽 1시 · 온라인 접수 24시간" : "오전 6시, 가장 먼저 연락드려요";
+      $("dockNote").textContent = phone ? "전화 상담 오전 8시 ~ 밤 9시 · 온라인 접수 24시간" : "오전 8시, 가장 먼저 연락드려요";
       $("dockForm").textContent = phone ? "출동 요청" : "야간 출동 요청";
     }
   }
@@ -365,7 +365,7 @@
     if (r.status === "free" && r.reason === "중복 문의") { title = "이미 접수된 문의가 있어요"; p = "같은 번호로 접수된 문의가 있어 그 문의로 연락드립니다."; }
     else if (r.status === "free" && r.reason === "서비스 지역 아님") { title = "아직 준비 중인 지역이에요"; p = "입력하신 주소는 아직 기사님이 없는 지역이에요. 불편을 드려 죄송합니다."; }
     $("doneT").textContent = title; $("doneP").textContent = p;
-    $("doneWhen").textContent = night ? (S.want ? `고르신 시간(${S.want})에 맞춰 연락드립니다` : "오전 6시부터 가장 먼저 연락드립니다") : "곧 연락드립니다";
+    $("doneWhen").textContent = night ? (S.want ? `고르신 시간(${S.want})에 맞춰 연락드립니다` : "오전 8시부터 가장 먼저 연락드립니다") : "곧 연락드립니다";
     $("formCard").hidden = true; $("doneCard").hidden = false;
     $("doneCard").scrollIntoView({ behavior: "smooth", block: "start" });
   }
