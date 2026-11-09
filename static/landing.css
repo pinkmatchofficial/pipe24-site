@@ -520,3 +520,18 @@ body.night #formCard{border:0}
 .dhero img.bgill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 40%;opacity:1}
 .dhero::after{background:linear-gradient(90deg,rgba(23,24,26,.92) 0%,rgba(23,24,26,.7) 48%,rgba(23,24,26,.1) 100%)}
 .dhero{min-height:0}.dhero .lead{padding-bottom:14px;margin-bottom:6px}.dhero .mascot.up{width:168px;right:-10px;bottom:14px}.dhero .bubble{bottom:146px;right:10px}
+/* 두더지 전화 버튼: 노란 작업 표지판 모양 (핑크배관 둥근 버튼과 다르게) */
+.call2{background:#ffc400;color:#1f2124;border:3px solid #1f2124;border-radius:6px;padding:0;gap:0;box-shadow:6px 6px 0 #1f2124;align-items:stretch;text-align:left}
+.call2:active{transform:translate(3px,3px);box-shadow:3px 3px 0 #1f2124}
+.call2::before{display:none}
+.call2 .c2-av{display:none}
+.call2 .c2-t{align-items:flex-start;justify-content:center;padding:12px 14px 12px 34px;position:relative;background:repeating-linear-gradient(-45deg,#1f2124 0 8px,#ffc400 8px 16px) left/20px 100% no-repeat}
+.call2 .c2-t b{font-family:"Black Han Sans",var(--f);font-weight:400;font-size:26px;letter-spacing:0;color:#1f2124}
+.call2 .c2-t small{order:-1;font-size:12.5px;font-weight:800;opacity:1;color:#1f2124}
+.call2 .c2-ic{width:66px;height:auto;border-radius:0;background:#1f2124;color:#ffc400;flex:none}
+.call2 .c2-ic::after{display:none}
+.call2 .c2-ic svg{width:28px;height:28px}
+@media (max-width:350px){.call2 .c2-t b{font-size:22px}.call2 .c2-ic{width:54px}}
+/* 현장 사진: 두 장씩 보이게 작게 */
+.gal-track figure{flex:0 0 44%}
+.gal-track figcaption{font-size:12px;padding:6px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
