@@ -514,3 +514,6 @@ body.night #formCard{border:0}
 .dhero .bgill{height:100%}
 .dhero .lead{padding-bottom:150px;margin-bottom:0}
 .dhero .lead{max-width:56%}.dhero .bubble{bottom:192px;right:14px}
+.dhero .lead{padding-bottom:28px}.dhero .mascot.up{width:190px;right:-14px}.dhero .bubble{bottom:166px}
+.dhero{min-height:400px;box-sizing:border-box}
+.dhero{display:flex;flex-direction:column}.dhero .loc{align-self:flex-start}.dhero .tape{margin-top:auto}
