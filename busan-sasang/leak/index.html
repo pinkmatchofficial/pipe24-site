@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light only">
 
 <title>부산 사상구 누수 탐지·수리 | 두더지배관</title>
 
@@ -21,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="/static/landing.css?v=1794227284">
+<link rel="stylesheet" href="/static/landing.css?v=1794227886">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/static/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
@@ -70,6 +71,7 @@
     </svg>
     <div class="tape" aria-hidden="true"></div>
   </section>
+  
 
   <section class="order-wrap" aria-labelledby="orderT">
     <h2 id="orderT">작업 전에 이렇게 정합니다</h2>
@@ -131,6 +133,11 @@
   
 
   
+  <section class="sec gal" aria-labelledby="workT">
+    <h2 id="workT">두더지가 다녀간 현장</h2>
+    <div class="gal-track"><figure><img src="/static/photos/w/w093.jpg" alt="바닥 철거 후 누수 확인" loading="lazy" width="720" height="540"><figcaption>바닥 철거 후 누수 확인</figcaption></figure><figure><img src="/static/photos/w/w096.jpg" alt="누수 배관 노출" loading="lazy" width="720" height="540"><figcaption>누수 배관 노출</figcaption></figure><figure><img src="/static/photos/w/w098.jpg" alt="배관 위치 확인" loading="lazy" width="720" height="540"><figcaption>배관 위치 확인</figcaption></figure><figure><img src="/static/photos/w/w105.jpg" alt="벽 속 배관 누수" loading="lazy" width="720" height="540"><figcaption>벽 속 배관 누수</figcaption></figure><figure><img src="/static/photos/w/w106.jpg" alt="누수 배관 교체 전" loading="lazy" width="720" height="540"><figcaption>누수 배관 교체 전</figcaption></figure><figure><img src="/static/photos/w/w113.jpg" alt="배관 보온 마감" loading="lazy" width="720" height="540"><figcaption>배관 보온 마감</figcaption></figure><figure><img src="/static/photos/w/w094.jpg" alt="욕실 바닥 철거" loading="lazy" width="720" height="540"><figcaption>욕실 바닥 철거</figcaption></figure></div>
+    <p class="hint">옆으로 넘겨 보세요. 기사님이 실제 현장에서 찍은 사진이에요.</p>
+  </section>
 
   
 
@@ -151,35 +158,39 @@
   <div id="formBottom">
   <div id="formBox">
 
-  <section class="card soft" id="formCard" aria-labelledby="formT">
-    <span id="form" class="anchor"></span><h2 id="formT" class="form-h"><svg class="fm" aria-hidden="true"><use href="#moleWave"/></svg><span data-night="야간 출동 요청서">출동 요청서</span></h2><p class="small muted night-only" style="margin:-6px 0 0">오전 6시부터, 원하시는 시간에 맞춰 연락드려요.</p>
-    
-    <div class="safe"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span class="small"><b>번호는 상담 연락에만 쓰여요</b><br><span class="muted">광고 문자나 다른 용도로는 쓰지 않아요. 상담이 끝나면 정해진 기간 뒤 지워집니다.</span></span></div>
-    
+  <section class="ticket" id="formCard" aria-labelledby="formT">
+    <span id="form" class="anchor"></span>
+    <div class="tk-head"><h2 id="formT" class="form-h"><svg class="fm" aria-hidden="true"><use href="#moleWave"/></svg><span data-night="야간 출동 요청서">출동 요청서</span></h2><span class="tk-no">사상구 · 무료 접수</span></div>
+    <p class="tk-sub night-only">오전 6시부터, 원하시는 시간에 맞춰 연락드려요.</p>
     <form id="leadForm" novalidate>
-      <label><span>주소 <span class="opt">(선택 · 통화 때 알려주셔도 돼요)</span></span>
-        <input id="fAddr" readonly placeholder="눌러서 주소 검색 (사상구 도로명·건물명)">
+      <fieldset class="tk-step"><legend><i>1</i><span id="reqLabel">어떤 일인가요?</span></legend>
+        <div class="chips tiles" id="reqChips" role="group" aria-labelledby="reqLabel"></div>
+        <label id="memoWrap" hidden>어떤 문제인지 적어주세요<textarea id="fMemo" rows="3" maxlength="200" placeholder="예: 욕실 바닥 아래층 천장으로 물이 새요"></textarea></label>
+      </fieldset>
+      <fieldset class="tk-step"><legend><i>2</i><span>어디로 갈까요?</span></legend>
+      <label><span class="opt">선택 · 통화 때 알려주셔도 돼요</span>
+        <input id="fAddr" readonly placeholder="주소 검색 (사상구 도로명·건물명)">
       </label>
       <div id="postLayer" class="post" hidden><div class="between"><b class="small">주소 검색</b><button type="button" class="btn sm ghost" id="postClose">닫기</button></div><div id="postWrap"></div></div>
       <div id="addrPick" hidden></div>
       <label id="addr2Wrap" hidden>상세 주소 (선택)<input id="fAddr2" maxlength="100" placeholder="101동 1203호" autocomplete="off"></label>
-      <div>
-        <span class="hint" id="reqLabel">문제가 되는 곳을 선택해주세요</span>
-        <div class="chips" id="reqChips" role="group" aria-labelledby="reqLabel"></div>
-      </div>
-      <label id="memoWrap" hidden>어떤 문제인지 적어주세요<textarea id="fMemo" rows="3" maxlength="200" placeholder="예: 욕실 바닥 아래층 천장으로 물이 새요"></textarea></label>
-      <div class="night-only" id="wantWrap">
-        <span class="hint" id="wantLabel">언제 연락드릴까요?<br><span class="muted small">고르신 시간에 맞춰 연락드려요.</span></span>
+      </fieldset>
+      <div class="night-only tk-step" id="wantWrap">
+        <span class="hint" id="wantLabel">언제 연락드릴까요?</span>
         <div class="chips" id="wantChips" role="group" aria-labelledby="wantLabel"><button type="button" class="chip" aria-pressed="false">오전 6시 바로</button><button type="button" class="chip" aria-pressed="false">오전 7~8시</button><button type="button" class="chip" aria-pressed="false">오전 8~9시</button><button type="button" class="chip" aria-pressed="false">오전 9~10시</button><button type="button" class="chip" aria-pressed="false">오전 10시 이후</button></div>
       </div>
-      <label><span>이름 <span class="opt">(선택)</span></span><input id="fName" maxlength="40" autocomplete="name"></label>
+      <fieldset class="tk-step"><legend><i>3</i><span>기사님이 연락드릴 번호</span></legend>
       
-      <label>휴대폰 번호<input id="fPhone" inputmode="tel" maxlength="13" autocomplete="tel" placeholder="010-0000-0000"></label>
+      <label><span class="opt">휴대폰 번호</span><input id="fPhone" inputmode="tel" maxlength="13" autocomplete="tel" placeholder="010-0000-0000"></label>
       
+      <label><span class="opt">이름 (선택)</span><input id="fName" maxlength="40" autocomplete="name"></label>
+      <p class="tk-safe">번호는 이 출동 상담에만 쓰고, 광고 문자는 보내지 않아요.</p>
+      </fieldset>
       <input type="text" id="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
       <label class="check-row"><input type="checkbox" id="fAgree"><span>상담을 위한 개인정보 수집·이용에 동의합니다 (필수) <a href="/privacy/" target="_blank">보기</a></span></label>
       <span class="err" id="formErr" role="alert" hidden></span>
-      <button type="submit" class="btn" id="submitBtn" data-night="야간 출동 요청 남기기">출동 요청하기</button>
+      <button type="submit" class="btn" id="submitBtn" data-night="야간 출동 요청 남기기">두더지 출동 요청하기</button>
+      <p class="tk-foot">접수 후 기사님이 바로 전화드려요 · 취소해도 비용 없음</p>
     </form>
   </section>
 
@@ -221,5 +232,5 @@
 <div class="toast" id="toast" role="status"></div>
 <script>window.PM={"slug": "busan-sasang/leak", "label": "부산 사상구", "sido": "부산", "gu": "사상구", "gu_short": "사상구", "category": "배관", "api": "https://app.pinkmatch.kr", "preview": false, "closed": false, "verify": false, "hours": [6, 1], "photos": [], "leak": true};</script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
-<script src="/static/landing.js?v=1794227284" defer></script>
+<script src="/static/landing.js?v=1794227886" defer></script>
 </body></html>
