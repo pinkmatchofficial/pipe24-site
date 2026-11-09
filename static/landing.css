@@ -567,3 +567,8 @@ body.night #formCard{border:0}
 .dock .dc-t b{font-size:15px;font-weight:800}
 .dock .dc-t small{font-size:13px;font-weight:700;opacity:.85;letter-spacing:-.2px}
 @media (prefers-reduced-motion:reduce){.call2::after,.dock .d-call::after,.call2 .c2-ic svg{animation:none;display:none}.call2 .c2-ic svg{display:block}}
+/* 전화 버튼 눌렸다 나오는 모션 */
+.call2{animation:molPress 2.8s ease-in-out infinite}
+@keyframes molPress{0%,40%,100%{transform:translate(0,0);box-shadow:6px 6px 0 #1f2124}46%{transform:translate(5px,5px);box-shadow:1px 1px 0 #1f2124}54%{transform:translate(0,0);box-shadow:6px 6px 0 #1f2124}60%{transform:translate(5px,5px);box-shadow:1px 1px 0 #1f2124}68%{transform:translate(0,0);box-shadow:6px 6px 0 #1f2124}}
+.call2:active{animation:none;transform:translate(5px,5px);box-shadow:1px 1px 0 #1f2124}
+@media (prefers-reduced-motion:reduce){.call2{animation:none}}
