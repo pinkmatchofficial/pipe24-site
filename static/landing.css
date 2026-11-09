@@ -547,3 +547,10 @@ body.night #formCard{border:0}
 .site-grid div{background:#f4f5f6;border:1.5px solid #e1e3e6;border-radius:6px;padding:14px 6px;display:flex;flex-direction:column;align-items:center;gap:8px}
 .site-grid svg{width:34px;height:34px;padding:7px;border-radius:50%;background:#1f2124;fill:none;stroke:#ffc400;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .site-grid b{font-size:14px;font-weight:800}
+/* 로고 글자: 두더지(흰색) + 배관(노랑), 굵고 좁게 */
+.bar .logo .wm{display:inline-flex;align-items:baseline;gap:1px;font-family:var(--f);font-size:21px;font-weight:900;letter-spacing:-1.2px}
+.bar .logo .wm b{color:#fff;font-weight:900}
+.bar .logo .wm em{font-style:normal;color:#ffc400;font-weight:900}
+/* 섹션 제목 강조: 노란 형광펜 밑줄 */
+.sec h2,.order-wrap h2{display:inline-block;align-self:flex-start;padding:0 2px;background:linear-gradient(transparent 58%,#ffc400 58%,#ffc400 90%,transparent 90%)}
+.sec>h2+*,.order-wrap>h2+*{margin-top:4px}
