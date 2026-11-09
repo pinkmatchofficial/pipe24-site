@@ -175,6 +175,9 @@
     const bg = LEAK ? "s-leak" : ({ 변기: "s-toilet", 세면대: "s-toilet", 싱크대: "s-sink", 하수구: "s-drain" })[CAT] || "";
     const mc = document.querySelector(".mcard");
     if (bg && mc && !SVC && !THAW) mc.classList.add(bg);
+    const iu = document.getElementById("illUse");
+    const ik = ({ 변기: "toilet", 세면대: "toilet", 싱크대: "sink", 하수구: "drain" })[CAT];
+    if (iu && ik && !SVC && !LEAK) iu.setAttribute("href", "#ill-" + ik);
     const hl = document.querySelector("header.bar .small.muted");  // 오른쪽 위 작은 글씨도 검색어 업종으로
     if (hl && CAT) hl.textContent = hl.textContent.replace("배관 막힘", `${CAT} 막힘`);
   }
