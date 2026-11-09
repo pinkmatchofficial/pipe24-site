@@ -1,9 +1,9 @@
 :root{
-  --bg:#eef2f6; --surface:#fff; --fg:#17212c; --muted:#4c5a68; --line:#e1e7ee; --field:#f6f8fb;
-  --accent:#E8711C; --accent-deep:#1E3A5F; --accent-soft:#FDE9D8; --accent-softer:#fff5ec;
+  --bg:#e8e9eb; --surface:#fff; --fg:#17181a; --muted:#5d6168; --line:#d9dbdf; --field:#f4f5f6;
+  --accent:#1f2124; --accent-deep:#17181a; --accent-soft:#fff3c4; --accent-softer:#fffaea; --yellow:#ffc400; --soil:#5b3f2a;
   --good:#1f7a4d; --good-soft:#e3f4ea; --warn:#9a6200; --warn-soft:#fdf1da; --off:#8a7a80; --off-soft:#f1ecee;
   --shadow:0 1px 2px rgba(30,58,95,.05),0 4px 14px rgba(30,58,95,.06);
-  --f:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f:Pretendard,"Pretendard Variable",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root{
   --bg:#0d1218; --surface:#161e27; --fg:#eef2f6; --muted:#a9b6c3; --line:#2a3542; --field:#121921;
@@ -388,3 +388,66 @@ body.night .mcard .mt b{font-size:24px}
 .mcard img{display:none}
 .mcard.s-replace{background:linear-gradient(90deg,rgba(10,20,32,.8) 0%,rgba(10,20,32,.55) 55%,rgba(10,20,32,.15) 100%),url(/static/photos/bg_toilet.jpg) 30% 70%/auto 135% no-repeat}
 .mcard .y{background:#FFC24D;color:#1E3A5F}.mcard .w{background:#fff;color:#1E3A5F}
+
+/* ===== 두더지배관 v2: 아스팔트 + 안전 노랑 ===== */
+.disp,.dhero h1,.sec h2,.order-wrap h2,#formT,.dsteps li::before{font-family:"Black Han Sans",var(--f);font-weight:400}
+.bar{background:#1f2124;border-bottom:0;color:#fff;margin:0 -18px;padding:10px 18px}
+.bar .logo{color:#fff;font-family:"Black Han Sans",var(--f);font-weight:400;font-size:21px;letter-spacing:.3px}
+.bar .logo .lg{width:34px;height:34px}
+.bar .small.muted{color:#ffc400;font-weight:700}
+.dhero{position:relative;overflow:hidden;background:#1f2124;color:#fff;margin:-14px -18px 0;padding:22px 18px 0}
+.dhero .loc{display:inline-block;font-size:13px;font-weight:800;color:#1f2124;background:#ffc400;padding:2px 9px;border-radius:3px}
+.dhero h1{position:relative;z-index:1;max-width:70%;font-size:40px;line-height:1.1;margin:12px 0 10px;letter-spacing:-.5px;word-break:keep-all}
+.dhero h1 em{font-style:normal;color:#ffc400}
+.dhero .lead{position:relative;z-index:1;max-width:72%;margin:0 0 16px;color:#c9ccd1;font-size:14.5px}
+.dhero .mascot{position:absolute;right:4px;top:66px;width:116px;height:116px;filter:drop-shadow(0 6px 12px rgba(0,0,0,.35))}
+.dhero .bubble{position:absolute;right:14px;top:36px;background:#fff;color:#1f2124;font-weight:800;font-size:12.5px;padding:5px 10px;border-radius:12px;z-index:2;white-space:nowrap}
+.dhero .bubble::after{content:"";position:absolute;left:30px;bottom:-6px;border:6px solid transparent;border-top-color:#fff;border-bottom:0}
+.dhero .ground{display:block;width:calc(100% + 36px);margin:0 -18px;height:auto}
+@media (max-width:360px){.dhero h1{font-size:34px}.dhero .mascot{width:96px;height:96px}}
+.tape{height:14px;margin:0 -18px;background:repeating-linear-gradient(-45deg,#ffc400 0 14px,#1f2124 14px 28px)}
+.order-wrap{padding-top:6px}
+.order-wrap h2,.sec h2{font-size:24px;letter-spacing:-.3px;margin:0 0 14px}
+.order{border:2px solid #1f2124;border-radius:4px;background:#fff;position:relative}
+.order .oh{display:flex;justify-content:space-between;align-items:baseline;background:#1f2124;color:#fff;padding:10px 14px}
+.order .oh b{font-family:"Black Han Sans",var(--f);font-weight:400;font-size:19px}
+.order .oh span{font-size:12px;color:#b8bcc2}
+.order dl{margin:0;padding:4px 14px 12px}
+.order dl div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.order dl div:last-child{border-bottom:0}
+.order dt{color:var(--muted)}.order dd{margin:0;font-weight:800;text-align:right}
+.order .big{font-family:"Black Han Sans",var(--f);font-weight:400;font-size:22px}
+.stamp{position:absolute;right:12px;bottom:-14px;transform:rotate(-8deg);border:3px solid #c62828;color:#c62828;font-weight:900;padding:2px 10px;border-radius:4px;background:#fff;font-size:14px}
+.tip{display:flex;gap:10px;align-items:center;background:#fff3c4;border-radius:8px;padding:10px 12px;margin-top:24px;font-size:14px;font-weight:600}
+.tip svg{width:46px;height:46px;flex:none}
+.why>div{background:var(--field);border-color:transparent;border-radius:6px}
+.why i{background:#5b3f2a !important;color:#ffc400 !important;border-radius:50% !important}
+.why.risk i{background:#fff3c4 !important}
+.dsteps{list-style:none;margin:0;padding:0;position:relative}
+.dsteps::before{content:"";position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:repeating-linear-gradient(#1f2124 0 6px,transparent 6px 10px)}
+.dsteps li{position:relative;padding:0 0 18px 46px}
+.dsteps li::before{content:attr(data-n);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:#ffc400;color:#1f2124;display:grid;place-items:center;font-size:16px}
+.dsteps b{display:block}.dsteps span{color:var(--muted);font-size:14px}
+#formCard{background:#1f2124;color:#fff;border:0;border-radius:6px}
+#formCard .muted,#formCard .hint,#formCard .opt{color:#b8bcc2}
+#formCard label,#formCard .check-row span{color:#e3e5e8}
+#formCard input,#formCard textarea{background:#2a2c30;border-color:#3a3d42;color:#fff}
+#formCard .chip{background:transparent;border-color:#4a4e55;color:#fff}
+#formCard .chip[aria-pressed="true"]{background:#ffc400;border-color:#ffc400;color:#1f2124;font-weight:700}
+#formCard .safe{background:#2a2c30;color:#e3e5e8}
+#formCard a{color:#ffc400}
+#formT{display:flex;align-items:center;gap:8px;color:#ffc400;font-size:26px}
+#formT .fm{width:54px;height:54px;margin:-10px 0}
+#submitBtn,.btn{background:#ffc400;color:#1f2124;font-weight:900}
+.btn.ghost,.btn.line{background:transparent;color:inherit}
+.dock .d-call{background:#ffc400;color:#1f2124}
+.dock .d-form{background:#1f2124;color:#fff}
+.call2{background:#1f2124}
+.call2 .c2-t small{color:#c9ccd1}
+.c2-av{background:#ffc400 center/80% no-repeat url(/static/mark.png) !important}
+.ac-face{background:#ffc400 center/80% no-repeat url(/static/mark.png) !important}
+.fbrand{display:flex;align-items:center;gap:6px}.fbrand svg{width:30px;height:30px}
+.kicker{color:#5b3f2a}
+body.night #formCard{border:0}
+.dhero .tape{margin:0 -18px}
+.dock .in.one .d-form{background:#ffc400;color:#1f2124}
