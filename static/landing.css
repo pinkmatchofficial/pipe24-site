@@ -539,3 +539,7 @@ body.night #formCard{border:0}
 .dhero h1,.sec h2,.order-wrap h2,#formT,.pick h2,.order .oh b,.order .big,.call2 .c2-t b,.dsteps li::before,.tk-step legend i{font-family:var(--f) !important;font-weight:800 !important;letter-spacing:-.6px}
 .dhero h1{font-weight:900 !important;font-size:36px;line-height:1.2}
 .sec h2,.order-wrap h2,.pick h2{font-size:22px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px}
+.trust div{background:#1f2124;color:#fff;border-radius:6px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;gap:3px}
+.trust b{color:#ffc400;font-size:15px;font-weight:800}
+.trust span{font-size:11.5px;color:#c9ccd1;line-height:1.35}
