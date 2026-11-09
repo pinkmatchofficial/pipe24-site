@@ -507,3 +507,10 @@ body.night #formCard{border:0}
 @media (max-width:360px){.dhero .mascot.up{width:180px}}
 .dhero .bubble{top:auto;bottom:232px;right:26px}
 .dhero .bubble{bottom:262px}
+.dhero{padding-bottom:0}
+.dhero .mascot.up{bottom:14px}
+.dhero .bubble{bottom:178px}
+.dhero::after{height:auto;bottom:0}
+.dhero .bgill{height:100%}
+.dhero .lead{padding-bottom:150px;margin-bottom:0}
+.dhero .lead{max-width:56%}.dhero .bubble{bottom:192px;right:14px}
