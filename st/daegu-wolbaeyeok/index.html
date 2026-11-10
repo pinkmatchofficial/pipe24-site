@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#1f2124">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="/static/landing.css?v=1794312878">
+<link rel="stylesheet" href="/static/landing.css?v=1794313140">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/static/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
@@ -125,7 +125,7 @@
     <p>밤 9시~오전 8시에는 전화 상담을 쉬어요.<br>지금 남겨 주시면 <em>오전 8시부터, 원하시는 시간에</em> 연락드려요.</p>
     <ol class="nc-steps"><li><b>지금</b><span>1분 접수</span></li><li><b>원하는 시간</b><span>오전 8시부터 연락</span></li><li><b>바로</b><span>가까운 기사님 출동</span></li></ol>
     <p class="nc-left" id="nightLeft"></p>
-    <a class="btn nc-btn" href="#form" id="nightGo">야간 접수 남기기</a>
+    <a class="btn nc-btn" href="#form" id="nightGo">상담 예약하기</a>
   </section>
 
   
@@ -232,12 +232,8 @@
         <label id="memoWrap" hidden>어떤 문제인지 적어주세요<textarea id="fMemo" rows="3" maxlength="200" placeholder="예: 베란다 배수구에서 물이 역류해요"></textarea></label>
       </fieldset>
       <fieldset class="tk-step"><legend><i>2</i><span>어디로 갈까요?</span></legend>
-      <label><span class="opt">눌러서 주소를 찾아주세요</span>
-        <input id="fAddr" readonly placeholder="주소 검색 (월배역 도로명·건물명)">
-      </label>
-      <div id="postLayer" class="post" hidden><div class="between"><b class="small">주소 검색</b><button type="button" class="btn sm ghost" id="postClose">닫기</button></div><div id="postWrap"></div></div>
-      <div id="addrPick" hidden></div>
-      <label id="addr2Wrap" hidden>상세 주소 (선택)<input id="fAddr2" maxlength="100" placeholder="101동 1203호" autocomplete="off"></label>
+      <label><span class="opt">시·동까지만 적어주세요. 정확한 주소는 통화로 확인해요.</span><input id="fArea" placeholder="예: 수원시 영통동" maxlength="40" autocomplete="off"></label>
+      <div hidden><input id="fAddr" readonly><div id="postLayer" hidden><button type="button" id="postClose"></button><div id="postWrap"></div></div><div id="addrPick"></div><input id="fAddr2"></div>
       </fieldset>
       <div class="night-only tk-step" id="wantWrap">
         <span class="hint" id="wantLabel">언제 연락드릴까요?</span>
@@ -253,8 +249,8 @@
       <input type="text" id="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
       <label class="check-row"><input type="checkbox" id="fAgree"><span>상담을 위한 개인정보 수집·이용 및 시공 업체 제공에 동의합니다 (필수) <a href="/privacy/" target="_blank">보기</a></span></label>
       <span class="err" id="formErr" role="alert" hidden></span>
-      <button type="submit" class="btn" id="submitBtn" data-night="야간 출동 요청 남기기">두더지 출동 요청하기</button>
-      <p class="tk-foot">접수 후 기사님이 바로 전화드려요 · 취소해도 비용 없음</p>
+      <button type="submit" class="btn" id="submitBtn" data-night="출동 예약하기">두더지 출동 요청하기</button>
+      <p class="tk-foot" id="tkFoot">접수 후 기사님이 바로 전화드려요 · 취소해도 비용 없음</p>
     </form>
   </section>
 
@@ -305,5 +301,5 @@
 <div class="toast" id="toast" role="status"></div>
 <script>window.PM={"slug": "st/daegu-wolbaeyeok", "label": "월배역", "sido": "대구", "gu": "", "gu_short": "월배역", "category": "배관", "api": "https://app.pinkmatch.kr", "preview": false, "closed": false, "verify": false, "hours": [8, 21], "photos": []};</script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
-<script src="/static/landing.js?v=1794312878" defer></script>
+<script src="/static/landing.js?v=1794313140" defer></script>
 </body></html>

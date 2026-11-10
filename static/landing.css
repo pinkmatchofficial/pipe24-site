@@ -578,3 +578,14 @@ body.night #formCard{border:0}
 .call2 .c2-t small{font-size:14px}
 @media (max-width:370px){.call2 .c2-t b{font-size:26px}.call2 .c2-t{padding-left:28px}}
 @media (max-width:340px){.call2 .c2-t b{font-size:22px}}
+
+/* 야간 카드: 두더지 색 (핑크 제거) */
+.night-card{background:linear-gradient(160deg,#2b2d31,#1f2124);color:#f3f3f3}
+.nc-top{color:#ffc400}
+.night-card p{color:#d9dbe0}
+.night-card em{color:#ffc400}
+.nc-steps span{color:#c9ccd1}
+.nc-left{color:#ffc400!important}
+.night-card .nc-btn{background:#ffc400;color:#1f2124}
+body.night #formCard{border-color:#e5e5e5}
+#nightLeft,.nc-left{display:none!important}

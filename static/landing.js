@@ -252,8 +252,10 @@
       if ($("midCall")) $("midCall").hidden = !phone;
       $("dockForm").hidden = false;
       $("dock").querySelector(".in").classList.toggle("one", !phone);
-      $("dockNote").textContent = phone ? "전화 상담 오전 8시 ~ 밤 9시 · 온라인 접수 24시간" : "오전 8시, 가장 먼저 연락드려요";
-      $("dockForm").textContent = phone ? "상담 접수하기" : "야간 상담 접수하기";
+      const day = kstHour() < HRS[0] ? "오늘" : "내일";
+      $("dockNote").textContent = phone ? "전화 상담 오전 8시 ~ 밤 9시 · 온라인 접수 24시간" : `${day} 오전 8시, 친절한 직원이 바로 연락드릴게요`;
+      $("dockForm").textContent = "상담 접수하기";
+      if ($("tkFoot")) $("tkFoot").textContent = phone ? "접수 후 기사님이 바로 전화드려요 · 취소해도 비용 없음" : `${day} 오전에 원하시는 시간에 상담, 방문해드릴게요`;
     }
   }
   if (!$("callWrap")) placeForm(true);
@@ -334,8 +336,24 @@
     if (S.sending) return;
     // 지역 페이지는 주소 없이도 접수 (그 페이지 지역으로 배정, 상세 주소는 통화로)
     const area = $("fArea") ? $("fArea").value.trim() : "";
-    const addr = S.addr || (PM.sido && PM.gu ? { sido: PM.sido, sigungu: PM.gu, dong: "", addr: area } : null);
-    if (!addr) { err("주소를 검색해서 선택해주세요."); return; }
+    let addr = S.addr || (PM.sido && PM.gu ? { sido: PM.sido, sigungu: PM.gu, dong: "", addr: area } : null);
+    if (!addr && PM.regs) {
+      // 지역 없는 페이지: "수원시 영통동"처럼 적은 글에서 시·구를 찾음
+      const t = area.replace(/\s+/g, "");
+      let best = null;
+      for (const [sd, gu, gs] of PM.regs) {
+        for (const nm of [gu, gs]) {
+          if (nm.length < 2 || !t.includes(nm)) continue;
+          const score = nm.length + (t.includes(sd) ? 10 : 0);
+          if (!best || score > best.score) best = { sd, gu, score };
+        }
+      }
+      if (best) {
+        const m = area.match(/([가-힣0-9]+(?:동|읍|면|리|가))(?:\s|$)/);
+        addr = { sido: best.sd, sigungu: best.gu, dong: m ? m[1] : "", addr: area };
+      }
+    }
+    if (!addr) { err(area ? "시·구 이름을 같이 적어주세요. 예: 수원시 영통동" : "어디로 갈지 적어주세요. 예: 수원시 영통동"); return; }
     if (S.req.startsWith("기타") && !$("fMemo").value.trim()) { err("어떤 문제인지 적어주세요."); return; }
     if (!$("fAgree").checked) { err("개인정보 수집·이용 및 제공에 동의해주세요."); return; }
     if (PM.preview) { err(""); toast("오픈 준비 중인 미리보기 화면이에요. 아직 실제 접수는 되지 않아요."); return; }
