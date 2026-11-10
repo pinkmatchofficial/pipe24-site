@@ -572,3 +572,9 @@ body.night #formCard{border:0}
 @keyframes molPress{0%,40%,100%{transform:translate(0,0);box-shadow:6px 6px 0 #1f2124}46%{transform:translate(5px,5px);box-shadow:1px 1px 0 #1f2124}54%{transform:translate(0,0);box-shadow:6px 6px 0 #1f2124}60%{transform:translate(5px,5px);box-shadow:1px 1px 0 #1f2124}68%{transform:translate(0,0);box-shadow:6px 6px 0 #1f2124}}
 .call2:active{animation:none;transform:translate(5px,5px);box-shadow:1px 1px 0 #1f2124}
 @media (prefers-reduced-motion:reduce){.call2{animation:none}}
+/* 전화번호 버튼: 번호 크게 (빈 공간 채우기) */
+.call2 .c2-t{padding:14px 8px 14px 30px}
+.call2 .c2-t b{font-size:31px;letter-spacing:-1px;white-space:nowrap}
+.call2 .c2-t small{font-size:14px}
+@media (max-width:370px){.call2 .c2-t b{font-size:26px}.call2 .c2-t{padding-left:28px}}
+@media (max-width:340px){.call2 .c2-t b{font-size:22px}}
