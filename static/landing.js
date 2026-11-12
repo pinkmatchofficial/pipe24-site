@@ -354,7 +354,7 @@
       }
     }
     if (!addr) { err(area ? "시·구 이름을 같이 적어주세요. 예: 수원시 영통동" : "어디로 갈지 적어주세요. 예: 수원시 영통동"); return; }
-    if (S.req.startsWith("기타") && !$("fMemo").value.trim()) { err("어떤 문제인지 적어주세요."); return; }
+    if (S.req.startsWith("기타") && !$("fMemo").value.trim()) { err("어떤 증상인지 알려 주세요."); return; }
     if (!$("fAgree").checked) { err("개인정보 수집·이용 및 제공에 동의해주세요."); return; }
     if (PM.preview) { err(""); toast("오픈 준비 중인 미리보기 화면이에요. 아직 실제 접수는 되지 않아요."); return; }
     if (PM.closed) { err(""); toast("온라인 접수는 곧 열려요. 조금만 기다려주세요."); return; }
