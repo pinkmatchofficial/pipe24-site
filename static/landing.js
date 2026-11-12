@@ -38,7 +38,7 @@
   async function api(path, body) {
     const r = await fetch(PM.api + path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     let data = {}; try { data = await r.json(); } catch (e) {}
-    if (!r.ok) throw new Error(data.detail || "잠시 후 다시 시도해주세요.");
+    if (!r.ok) throw new Error(data.detail || "조금 뒤에 한 번 더 눌러 주세요.");
     return data;
   }
   const fmtPhone = (v) => { const d = v.replace(/\D/g, "").slice(0, 11); return d.length < 4 ? d : d.length < 8 ? d.slice(0, 3) + "-" + d.slice(3) : d.slice(0, 3) + "-" + d.slice(3, 7) + "-" + d.slice(7); };
@@ -157,7 +157,7 @@
   if (AREA && $("hbArea")) $("hbArea").textContent = AREA;
   if (CAT) {
     if ($("hbCat")) $("hbCat").textContent = `${CAT}막힘,`;
-    if ($("riskT")) $("riskT").textContent = `${CAT}막힘, 그냥 두면 이렇게 돼요`;
+    if ($("riskT")) $("riskT").textContent = `${CAT}막힘, 방치하면 생기는 일`;
     S.req = CAT;
   }
   // 별칭(건대·홍대·DMC 등)으로 검색해서 들어오면 첫 화면 지역 이름도 별칭으로 (예: 화양동 페이지 → "건대")
@@ -183,7 +183,7 @@
   }
   if (WCAT) {
     if ($("hbCat")) $("hbCat").textContent = `${WCAT}막힘,`;
-    if ($("riskT")) $("riskT").textContent = `${WCAT}막힘, 그냥 두면 이렇게 돼요`;
+    if ($("riskT")) $("riskT").textContent = `${WCAT}막힘, 방치하면 생기는 일`;
   }
   // 구글 광고 전환 (라벨이 설정된 것만)
   function gconv(kind) {
@@ -253,7 +253,7 @@
       $("dockForm").hidden = false;
       $("dock").querySelector(".in").classList.toggle("one", !phone);
       const day = kstHour() < HRS[0] ? "오늘" : "내일";
-      $("dockNote").textContent = phone ? "전화 상담 오전 8시 ~ 밤 9시 · 온라인 접수 24시간" : `${day} 오전 8시, 친절한 직원이 바로 연락드릴게요`;
+      $("dockNote").textContent = phone ? "전화는 아침 8시부터 밤 9시까지, 온라인 요청은 언제든 OK" : `${day} 오전 8시, 친절한 직원이 바로 연락드릴게요`;
       $("dockForm").textContent = "상담 접수하기";
       if ($("tkFoot")) $("tkFoot").textContent = phone ? "접수 후 기사님이 바로 전화드려요 · 취소해도 비용 없음" : `${day} 오전에 원하시는 시간에 상담, 방문해드릴게요`;
     }
@@ -278,7 +278,7 @@
 
   // 주소 검색 (다음 우편번호)
   function openPost() {
-    if (!window.daum || !daum.Postcode) { toast("주소 검색을 불러오는 중이에요. 잠시 후 다시 눌러주세요."); return; }
+    if (!window.daum || !daum.Postcode) { toast("주소 찾기를 여는 중이에요. 조금 뒤 다시 눌러 주세요."); return; }
     $("postLayer").hidden = false;
     new daum.Postcode({
       width: "100%", height: "100%",
@@ -289,7 +289,7 @@
         $("addr2Wrap").hidden = false;
         const same = d.sido === PM.sido && (d.sigungu || "").split(" ")[0] === PM.gu;
         $("addrPick").hidden = false;
-        $("addrPick").innerHTML = same ? `<span class="pill good">✓ ${PM.gu_short} 출동 가능 지역</span>` : `<span class="hint">입력하신 주소 지역의 기사님께 전달됩니다.</span>`;
+        $("addrPick").innerHTML = same ? `<span class="pill good">✓ ${PM.gu_short} 출동 가능 지역</span>` : `<span class="hint">적어 주신 동네 담당 기사님이 받아요.</span>`;
         err("");
         setTimeout(() => $("fAddr2").focus(), 50);
       },
@@ -305,21 +305,21 @@
   let cool = 0;
   $("sendCode").onclick = async () => {
     const phone = $("fPhone").value;
-    if (!/^010-\d{4}-\d{4}$/.test(phone)) { err("휴대폰 번호를 다시 확인해주세요."); return; }
+    if (!/^010-\d{4}-\d{4}$/.test(phone)) { err("휴대폰 번호가 맞는지 한 번 더 봐 주세요."); return; }
     if (PM.preview) { $("codeWrap").hidden = false; toast("미리보기 화면이라 실제 문자는 발송되지 않아요"); return; }
     if (PM.closed) { toast("온라인 접수는 곧 열려요. 조금만 기다려주세요."); return; }
     if (cool > 0) return;
     try {
       $("sendCode").disabled = true;
       await api("/api/verify/send", { phone });
-      $("codeWrap").hidden = false; err(""); toast("인증번호를 보냈어요"); $("fCode").focus();
+      $("codeWrap").hidden = false; err(""); toast("문자로 인증번호를 보냈어요"); $("fCode").focus();
       cool = 60;
       const t = setInterval(() => { cool--; $("sendCode").textContent = cool > 0 ? `재전송 ${cool}초` : "재전송"; if (cool <= 0) { clearInterval(t); $("sendCode").disabled = false; } }, 1000);
     } catch (e) { $("sendCode").disabled = false; err(e.message); }
   };
   async function checkCode() {
     const code = $("fCode").value.replace(/\D/g, "");
-    if (code.length !== 6) { err("인증번호 6자리를 입력해주세요."); return; }
+    if (code.length !== 6) { err("문자로 받은 숫자 6자리를 넣어 주세요."); return; }
     if (PM.preview || PM.closed) { toast("온라인 접수는 준비 중이에요."); return; }
     try {
       const r = await api("/api/verify/check", { phone: $("fPhone").value, code });
@@ -355,13 +355,13 @@
     }
     if (!addr) { err(area ? "시·구 이름을 같이 적어주세요. 예: 수원시 영통동" : "어디로 갈지 적어주세요. 예: 수원시 영통동"); return; }
     if (S.req.startsWith("기타") && !$("fMemo").value.trim()) { err("어떤 증상인지 알려 주세요."); return; }
-    if (!$("fAgree").checked) { err("개인정보 수집·이용 및 제공에 동의해주세요."); return; }
+    if (!$("fAgree").checked) { err("연락처 전달 동의에 체크해 주세요."); return; }
     if (PM.preview) { err(""); toast("오픈 준비 중인 미리보기 화면이에요. 아직 실제 접수는 되지 않아요."); return; }
     if (PM.closed) { err(""); toast("온라인 접수는 곧 열려요. 조금만 기다려주세요."); return; }
-    if (!/^01[016789]-\d{3,4}-\d{4}$/.test($("fPhone").value)) { err("휴대폰 번호를 다시 확인해주세요."); return; }
-    if (PM.verify && !S.token) { err("휴대폰 인증을 먼저 해주세요."); return; }
+    if (!/^01[016789]-\d{3,4}-\d{4}$/.test($("fPhone").value)) { err("휴대폰 번호가 맞는지 한 번 더 봐 주세요."); return; }
+    if (PM.verify && !S.token) { err("휴대폰 인증부터 해 주세요."); return; }
     const nightNow = isNight();
-    if (nightNow && !S.want) { err("연락받을 시간을 골라주세요."); $("wantWrap").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
+    if (nightNow && !S.want) { err("전화받기 편한 시간을 골라 주세요."); $("wantWrap").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
     S.sending = true; $("submitBtn").disabled = true; err("");
     try {
       const r = await api("/api/leads", {
@@ -379,9 +379,9 @@
 
   function showDone(r) {
     const night = isNight();
-    let title = "접수가 완료됐습니다", p = "담당 기사님께 바로 전달합니다.";
-    if (r.status === "free" && r.reason === "중복 문의") { title = "이미 접수된 문의가 있어요"; p = "같은 번호로 접수된 문의가 있어 그 문의로 연락드립니다."; }
-    else if (r.status === "free" && r.reason === "서비스 지역 아님") { title = "아직 준비 중인 지역이에요"; p = "입력하신 주소는 아직 기사님이 없는 지역이에요. 불편을 드려 죄송합니다."; }
+    let title = "출동 요청이 들어갔어요", p = "두더지 기사님에게 바로 넘겨요.";
+    if (r.status === "free" && r.reason === "중복 문의") { title = "먼저 남기신 요청이 있어요"; p = "이 번호로 먼저 남기신 요청이 있어서, 그 건으로 연락드릴게요."; }
+    else if (r.status === "free" && r.reason === "서비스 지역 아님") { title = "이 동네는 아직 기사님이 없어요"; p = "적어 주신 동네는 아직 두더지 기사님이 가지 못하는 곳이에요. 죄송합니다."; }
     $("doneT").textContent = title; $("doneP").textContent = p;
     $("doneWhen").textContent = night ? (S.want ? `고르신 시간(${S.want})에 맞춰 연락드립니다` : "오전 8시부터 가장 먼저 연락드립니다") : "곧 연락드립니다";
     $("formCard").hidden = true; $("doneCard").hidden = false;
