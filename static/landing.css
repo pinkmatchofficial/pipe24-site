@@ -625,3 +625,4 @@ body.night #formCard.ticket{border:1px solid #d9cfb8}
 .lc-list li{display:flex;align-items:flex-start;gap:12px;font-size:16px;line-height:1.5;color:#2a2b2e;font-weight:600}
 .lc-list svg{flex:none;width:26px;height:26px;padding:3px;border:2px solid #5b3f2a;border-radius:6px;background:#fff8dc;fill:none;stroke:#5b3f2a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;margin-top:-1px}
 .leakcheck .leakfig{margin-top:18px}
+.dhero h1 .hb-sub{white-space:nowrap;font-size:.84em}
