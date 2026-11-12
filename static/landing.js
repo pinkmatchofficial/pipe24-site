@@ -172,9 +172,6 @@
   }
   // 첫 화면 배경 사진: 검색어 업종(변기·싱크대·하수구)과 누수 페이지에 맞춰 (업종 페이지는 이미 고정 사진)
   {
-    const bg = LEAK ? "s-leak" : ({ 변기: "s-toilet", 세면대: "s-toilet", 싱크대: "s-sink", 하수구: "s-drain" })[CAT] || "";
-    const mc = document.querySelector(".mcard");
-    if (bg && mc && !SVC && !THAW) mc.classList.add(bg);
     const iu = document.getElementById("illImg");
     const ik = ({ 변기: "toilet", 세면대: "toilet", 싱크대: "sink", 하수구: "drain" })[CAT];
     if (iu && ik && !SVC && !LEAK) iu.src = "/static/photos/hero_" + ik + ".webp";

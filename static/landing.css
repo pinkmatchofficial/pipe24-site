@@ -214,20 +214,9 @@ body.night .dock .d-form{background:#1a2c42;color:#fff}
 body.night #formCard{border-color:#e7cfdb}
 #wantWrap{margin-top:2px} #wantWrap .hint{display:block;margin-bottom:6px}
 /* 첫 화면 모델 배너 */
-.mcard{position:relative;margin:-14px -18px 6px;height:300px;overflow:hidden;background:linear-gradient(170deg,#2a5185,#1E3A5F)}
-.mcard::before{content:"";position:absolute;right:-90px;top:-110px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.12)}
-.mcard img{position:absolute;right:-6px;bottom:-60px;height:340px;width:auto}
-.mcard .mt{position:absolute;left:20px;top:34px;color:#fff;z-index:1}
-.mcard .mt b{display:block;font-size:27px;line-height:1.2;font-weight:900;letter-spacing:-1px}
-.mcard .bd{display:flex;flex-direction:column;gap:7px;margin-top:16px;align-items:flex-start}
-.mcard .bd span{font-size:14px;font-weight:800;border-radius:999px;padding:6px 12px;letter-spacing:-.3px}
-.mcard .y{background:#FFE14D;color:#1E3A5F}.mcard .w{background:#fff;color:#C85A10}.mcard .k{background:#221d20;color:#fff}
-@media (max-width:350px){.mcard .mt b{font-size:23px}.mcard img{right:-30px}}
-@media (min-width:481px){.mcard{border-radius:0 0 18px 18px}}
 .call.withav{padding-left:86px;justify-content:flex-start}
 .call.withav svg{display:none}
 .call .av{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:58px;height:58px;border-radius:50%;background:#fff center/cover no-repeat url(/static/mark.png);border:2px solid rgba(255,255,255,.9)}
-body.night .mcard .mt b{font-size:24px}
 .call.withav{justify-content:center;padding-left:78px;padding-right:78px;text-align:center}
 .call.withav .call-t{align-items:center}
 .call.withav{padding-left:74px;padding-right:62px}.call.withav .call-t small{white-space:nowrap;font-size:15px}
@@ -279,12 +268,6 @@ body.night .mcard .mt b{font-size:24px}
 .mid-call{margin-top:18px}
 .call2{text-align:left}
 #callWrap .call2+.hint{margin-top:10px}
-.mcard{margin-bottom:-6px}
-.mcard{height:268px}
-.mcard img{height:316px;bottom:-56px}
-.mcard .mt{top:26px}
-.mcard .bd{margin-top:12px;gap:6px}
-.mcard{margin-bottom:-8px}
 .call2{text-align:center}
 .call2 .c2-t{align-items:center}
 .opt{font-weight:400;font-size:12.5px;color:var(--muted)}
@@ -326,8 +309,6 @@ body.night .mcard .mt b{font-size:24px}
 .c2-ic::after{animation:c2ring 1.8s ease-out infinite}
 @media (prefers-reduced-motion:reduce){.call2::before,.c2-ic svg,.c2-ic::after{animation:none}.c2-ic::after{opacity:0}}
 
-.mcard .bd{gap:6px;margin-top:13px}.mcard .bd span{font-size:13.5px;padding:5px 11px}
-.mcard .g{background:rgba(255,255,255,.18);color:#fff;border:1.5px solid rgba(255,255,255,.7)}
 .lead .nofix{display:inline-block;margin-top:6px;color:#1E3A5F;background:#FFE14D;border-radius:8px;padding:2px 8px;font-size:15px}
 .c2-t b{font-variant-numeric:tabular-nums;letter-spacing:-.2px}
 
@@ -341,9 +322,6 @@ body.night .mcard .mt b{font-size:24px}
 .hint.center+.center{margin-top:4px}
 
 /* 상단 배경: 실제 현장 사진 (누수 페이지는 기존 분홍 배경) */
-.mcard:not(.lk){background:linear-gradient(90deg,rgba(10,20,32,.78) 0%,rgba(10,20,32,.55) 55%,rgba(10,20,32,.15) 100%),url(/static/photos/bg_drain.jpg) center 60%/cover no-repeat}
-.mcard:not(.lk)::before{display:none}
-.mcard:not(.lk) .mt b{text-shadow:0 2px 8px rgba(0,0,0,.4)}
 
 /* 누수 페이지: 상단은 분홍 배경 + 모델, 증상 사진(곰팡이·거실 누수) */
 .why .symimg{grid-column:1/-1}
@@ -374,17 +352,8 @@ body.night .mcard .mt b{font-size:24px}
 .foot-areas .rhome{margin:6px 0 0;font-size:12px}
 
 /* 업종별 첫 화면 배경 사진 */
-.mcard.s-toilet{background:linear-gradient(90deg,rgba(10,20,32,.78) 0%,rgba(10,20,32,.55) 55%,rgba(10,20,32,.15) 100%),url(/static/photos/bg_toilet.jpg) 30% 70%/auto 135% no-repeat}
-.mcard.s-sink{background:linear-gradient(90deg,rgba(10,20,32,.78) 0%,rgba(10,20,32,.55) 55%,rgba(10,20,32,.15) 100%),url(/static/photos/bg_sink.jpg) 20% 75%/auto 140% no-repeat}
-.mcard.s-drain{background:linear-gradient(90deg,rgba(10,20,32,.78) 0%,rgba(10,20,32,.55) 55%,rgba(10,20,32,.15) 100%),url(/static/photos/bg_drain.jpg) center 60%/cover no-repeat}
-.mcard.s-thaw{background:linear-gradient(90deg,rgba(10,20,32,.6) 0%,rgba(10,20,32,.4) 55%,rgba(10,20,32,.1) 100%),url(/static/photos/bg_thaw.jpg) 0% 30%/auto 115% no-repeat}
-.mcard.lk.s-leak{background:linear-gradient(90deg,rgba(10,20,32,.72) 0%,rgba(10,20,32,.5) 55%,rgba(10,20,32,.12) 100%),url(/static/photos/bg_leak.jpg) center 30%/cover no-repeat}
-.mcard.lk.s-leak::before{display:none}
 
 /* 두더지배관: 모델 이미지 없음 · 교체 페이지 배경 */
-.mcard img{display:none}
-.mcard.s-replace{background:linear-gradient(90deg,rgba(10,20,32,.8) 0%,rgba(10,20,32,.55) 55%,rgba(10,20,32,.15) 100%),url(/static/photos/bg_toilet.jpg) 30% 70%/auto 135% no-repeat}
-.mcard .y{background:#FFC24D;color:#1E3A5F}.mcard .w{background:#fff;color:#1E3A5F}
 
 /* ===== 두더지배관 v2: 아스팔트 + 안전 노랑 ===== */
 .disp,.dhero h1,.sec h2,.order-wrap h2,#formT,.dsteps li::before{font-family:var(--f);font-weight:400}
