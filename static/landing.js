@@ -243,14 +243,17 @@
     if (hasCall) {
       $("callWrap").hidden = !phone;
       if ($("dockCall")) $("dockCall").hidden = !phone;
-      // 낮에도 온라인 접수 열어 둠: 전화가 먼저(크게), 통화가 어려우면 아래 접수
-      $("formCard").hidden = !$("doneCard").hidden;
-      placeForm(!phone || S.formOpened);
+      // 온라인 접수는 전화 쉬는 시간(심야)에만. 전화 받는 시간에는 전화만 받음 (접수 완료 화면은 그대로 보여 줌)
+      const doneShown = !$("doneCard").hidden;
+      $("formCard").hidden = phone || doneShown;
+      if ($("formBox")) $("formBox").hidden = phone && !doneShown;
+      placeForm(!phone || doneShown);
+      if ($("formOpen")) $("formOpen").hidden = true;
       if ($("midCall")) $("midCall").hidden = !phone;
-      $("dockForm").hidden = false;
-      $("dock").querySelector(".in").classList.toggle("one", !phone);
+      $("dockForm").hidden = phone;
+      $("dock").querySelector(".in").classList.add("one");
       const day = kstHour() < HRS[0] ? "오늘" : "내일";
-      $("dockNote").textContent = phone ? "전화는 아침 8시부터 밤 9시까지, 온라인 요청은 언제든 OK" : `${day} 오전 8시, 친절한 직원이 바로 연락드릴게요`;
+      $("dockNote").textContent = phone ? "전화 한 통이면 가까운 기사님이 바로 출발해요" : `${day} 오전 8시, 친절한 직원이 바로 연락드릴게요`;
       $("dockForm").textContent = "상담 접수하기";
       if ($("tkFoot")) $("tkFoot").textContent = phone ? "접수 후 기사님이 바로 전화드려요 · 취소해도 비용 없음" : `${day} 오전에 원하시는 시간에 상담, 방문해드릴게요`;
     }
@@ -387,6 +390,10 @@
   $("again").onclick = () => { $("doneCard").hidden = true; $("formCard").hidden = false; S.token = ""; $("verified").hidden = true; $("fCode").value = ""; };
 
   if ($("nightGo")) $("nightGo").onclick = (e) => { e.preventDefault(); $("dockForm").click(); };
+  // 전화 받는 시간에 '#form'으로 가는 링크를 누르면 접수 대신 전화 연결
+  document.querySelectorAll('a[href="#form"]').forEach((a) => a.addEventListener("click", (e) => {
+    if (isPhoneTime() && $("dockCall")) { e.preventDefault(); location.href = $("dockCall").getAttribute("href"); }
+  }));
   if ($("formOpen")) $("formOpen").onclick = () => {
     S.formOpened = true; placeForm(true);
     $("formCard").hidden = false; $("doneCard").hidden = true;
